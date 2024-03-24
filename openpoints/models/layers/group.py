@@ -231,8 +231,10 @@ class QueryAndGroup(nn.Module):
         assert self.normalize_dp + self.normalize_by_std + self.normalize_by_allstd < 2   # only nomalize by one method
         self.relative_xyz = relative_xyz
         self.return_only_idx = return_only_idx
-
-    def forward(self, query_xyz: torch.Tensor, support_xyz: torch.Tensor, features: torch.Tensor = None) -> Tuple[
+    def forward_idx(self,query_xyz: torch.Tensor, support_xyz: torch.Tensor, features: torch.Tensor = None):
+        idx = ball_query(self.radius, self.nsample, support_xyz, query_xyz)
+        return idx
+    def forward(self, query_xyz: torch.Tensor, support_xyz: torch.Tensor, features: torch.Tensor = None,idx=None) -> Tuple[
         torch.Tensor]:
         """
         :param query_xyz: (B, npoint, 3) xyz coordinates of the features
@@ -241,7 +243,8 @@ class QueryAndGroup(nn.Module):
         :return:
             new_features: (B, 3 + C, npoint, nsample)
         """
-        idx = ball_query(self.radius, self.nsample, support_xyz, query_xyz)
+        if idx is None:
+            idx = ball_query(self.radius, self.nsample, support_xyz, query_xyz)
 
         if self.return_only_idx:
             return idx
@@ -253,6 +256,7 @@ class QueryAndGroup(nn.Module):
                 grouped_xyz /= self.radius
         grouped_features = grouping_operation(features, idx) if features is not None else None
         return grouped_xyz, grouped_features
+
 
 
 class GroupAll(nn.Module):

@@ -10,6 +10,7 @@ model:
     strides: [4, 4, 4, 4]
     layers: 3
     use_res: False
+    
     mlps: [[[32, 32, 64]],  # stage 1: 96
         [[64, 64, 128]], # stage 2: 256
         [[128, 128, 256]], # stage 3: 512

@@ -5,7 +5,7 @@ from .pointmetabaselineepe import PointMetaBaselineEPEEncoder
 from .pointmetabaselineepedp import PointMetaBaselineEPEDPEncoder
 from .pointmetabaselinenope import PointMetaBaselineNOPEEncoder
 from .pointmetabase import PointMetaBaseEncoder
-
+from .pointmetabase_X3D import PointMetaBaseEncoder_X3D
 from .dgcnn import DGCNN
 from .deepgcn import DeepGCN
 from .pointmlp import PointMLPEncoder, PointMLP

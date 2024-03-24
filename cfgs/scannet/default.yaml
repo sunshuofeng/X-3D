@@ -2,7 +2,7 @@
 dataset:
   common:
     NAME: ScanNet
-    data_root: /userhome/dataset/pointcloud/scannet/ScanNet
+    data_root: /data1/ssf_dataset/ScanNet
     voxel_size: 0.02
   train:
     split: train

@@ -164,6 +164,8 @@ class ConvPool(nn.Module):
                  reduction='mean',
                  use_res=False,
                  use_pooled_as_identity=False,
+                 x3d=False,
+                 ncp=False,
                  **kwargs
                  ):
         """Local aggregation based on regular shared convolution + aggregation . 
@@ -267,6 +269,7 @@ class LocalAggregation(nn.Module):
                  act_args=None,
                  group_args=None,
                  use_res=False,
+                 x3d=False,
                  ):
         """LocalAggregation operators
         Args:

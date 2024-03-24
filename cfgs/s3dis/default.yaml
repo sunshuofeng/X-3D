@@ -2,7 +2,7 @@
 dataset:
   common:
     NAME: S3DIS
-    data_root: /dev/shm/MEMORY_DATA/s3disfull #/userhome/zyx/dataset/pointcloud/s3dis__for_pointnext/s3disfull #/dev/shm/MEMORY_DATA/s3disfull
+    data_root: /home/shuofeng/dataset/s3disfull #/userhome/zyx/dataset/pointcloud/s3dis__for_pointnext/s3disfull #/dev/shm/MEMORY_DATA/s3disfull
     test_area: 5 #5
     voxel_size: 0.04
   train:
@@ -37,7 +37,7 @@ datatransforms:
     scale: [0.9, 1.1]
     angle: [0, 0, 1]
     jitter_sigma: 0.005
-    jitter_clip: 0.02
+    jitter_clip: 0.01
 
 # ---------------------------------------------------------------------------- #
 # Training cfgs
